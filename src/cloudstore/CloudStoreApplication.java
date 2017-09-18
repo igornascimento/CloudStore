@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cloudstore;
+
+import ui.MainUI;
 
 /**
  *
- * @author igornascimento
+ * @author Igor Nascimento <igornascimento@gmail.com>
  */
 public class CloudStoreApplication {
 
@@ -15,7 +12,9 @@ public class CloudStoreApplication {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        new MainUI().execute();
+        
     }
     
 }
