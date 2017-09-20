@@ -1,12 +1,12 @@
 package view.menu;
 
-import repository.ClientRepository;
+import repository.CustomerRepository;
 
 /**
  *
  * @author Igor Nascimento <igornascimento@gmail.com>
  */
-public class ClientMenu {
+public class CustomerMenu {
     
     public static final int OP_CADASTRAR = 1;
     public static final int OP_LISTAR = 2;
@@ -14,9 +14,9 @@ public class ClientMenu {
     
     public static String getOptions() {
         return (  "\n------------------"
-                + "1- Cadastrar cliente;"
-                + "2- Listar clientes;"
-                + "0- Voltar;"
+                + "\n1- Cadastrar cliente;"
+                + "\n2- Listar clientes;"
+                + "\n0- Voltar;"
                 + "\n------------------");
     }
     

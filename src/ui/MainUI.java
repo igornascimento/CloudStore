@@ -1,9 +1,9 @@
 package ui;
 
-import repository.ClientRepository;
+import repository.CustomerRepository;
 import view.menu.MainMenu;
 import util.Console;
-import view.menu.ClientMenu;
+import view.menu.CustomerMenu;
 
 /**
  *
@@ -11,10 +11,10 @@ import view.menu.ClientMenu;
  */
 public class MainUI {
 
-    private ClientRepository clientsList;
+    private CustomerRepository clientsList;
     
     public MainUI() {
-        this.clientsList = new ClientRepository();
+        this.clientsList = new CustomerRepository();
     }
     
     public void execute() {
@@ -22,16 +22,16 @@ public class MainUI {
         int option = 0;
         do {
             System.out.println( MainMenu.getOptions() );
-            option = Console.scanInt("Informe a opção para prosseguir:");
+            option = Console.scanInt("\nInforme a opção para prosseguir:");
             switch (option) {
                 case MainMenu.OP_CLIENTES:
-                    new ClientUI(this.clientsList).show();
+                    new CustomerUI(this.clientsList).execute();
                     break;
                 case MainMenu.OP_SAIR:
-                    System.out.println("Finalizando aplicação.");
+                    System.out.println("\nFinalizando aplicação.");
                     break;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("\nOpção inválida.");
                     break;
             }
         } while (option != MainMenu.OP_SAIR);

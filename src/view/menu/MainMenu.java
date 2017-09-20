@@ -11,8 +11,8 @@ public class MainMenu {
     
     public static String getOptions() {
         return (  "\n------------------"
-                + "1- Clientes;"
-                + "0- Sair;"
+                + "\n1- Clientes;"
+                + "\n0- Sair;"
                 + "\n------------------" );
     }
     

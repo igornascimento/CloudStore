@@ -4,14 +4,14 @@ package model;
  *
  * @author Igor Nascimento <igornascimento@gmail.com>
  */
-public class Client {
+public class Customer {
     
     private String name;
     private String document;
     private String address;
     private String zipCode;
     
-    public void Client(String name, String document, String address, String zipCode) {
+    public Customer(String name, String document, String address, String zipCode) {
         this.name = name;
         this.document = document;
         this.address = address;
