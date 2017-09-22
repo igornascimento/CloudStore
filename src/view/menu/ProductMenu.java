@@ -2,9 +2,9 @@ package view.menu;
 
 /**
  *
- * @author Igor Nascimento <igornascimento@gmail.com>
+ * @author 180503743
  */
-public class CustomerMenu {
+public class ProductMenu {
     
     public static final int OP_CADASTRAR = 1;
     public static final int OP_LISTAR = 2;
@@ -12,8 +12,8 @@ public class CustomerMenu {
     
     public static String getOptions() {
         return (  "\n------------------"
-                + "\n1- Cadastrar cliente;"
-                + "\n2- Listar clientes;"
+                + "\n1- Cadastrar produto;"
+                + "\n2- Listar produtos;"
                 + "\n0- Voltar;"
                 + "\n------------------");
     }
