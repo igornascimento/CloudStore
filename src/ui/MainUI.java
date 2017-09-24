@@ -1,6 +1,7 @@
 package ui;
 
 import repository.CustomerRepository;
+import repository.ProductRepository;
 import view.menu.MainMenu;
 import util.Console;
 import view.menu.CustomerMenu;
@@ -11,11 +12,11 @@ import view.menu.CustomerMenu;
  */
 public class MainUI {
 
-    private CustomerRepository clientsList;
+    private CustomerRepository customersList;
     private ProductRepository productsList;
     
     public MainUI() {
-        this.clientsList = new CustomerRepository();
+        this.customersList = new CustomerRepository();
         this.productsList = new ProductRepository();
     }
     
@@ -27,13 +28,10 @@ public class MainUI {
             option = Console.scanInt("\nInforme a opção para prosseguir:");
             switch (option) {
                 case MainMenu.OP_CLIENTES:
-                    new CustomerUI(this.clientsList).execute();
+                    new CustomerUI(this.customersList).execute();
                     break;
                 case MainMenu.OP_PRODUTOS:
                     new ProductUI(this.productsList).execute();
-                    break;
-                case MainMenu.OP_SALDO:
-                    new BalanceUI(this.balance).execute();
                     break;
                 case MainMenu.OP_SAIR:
                     System.out.println("\nFinalizando aplicação.");

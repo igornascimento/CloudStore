@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.ArrayList;
+import model.Account;
 import model.Customer;
 import util.Console;
 import repository.CustomerRepository;
@@ -27,6 +28,9 @@ public class CustomerUI {
                 case CustomerMenu.OP_CADASTRAR:
                     registerCustomer();
                     break;
+                case CustomerMenu.OP_ADICIONAR_CONTA:
+                    //addAccount();
+                    break;
                 case CustomerMenu.OP_LISTAR:
                     listCustomers();
                     break;
@@ -46,27 +50,31 @@ public class CustomerUI {
             System.out.println("Cliente já cadastrado.");
         } else {
             String name = Console.scanString("Informe o nome completo:");
-            String address = Console.scanString("Informe o endereço:");
-            String zipCode = Console.scanString("Informe o CEP:");
-            this.customerList.add(new Customer(name, document, address, zipCode));
+            String email = Console.scanString("Informe o email:");
+            this.customerList.add(new Customer(name, document, email));
         }
     }
 
     private void listCustomers() {
         if (this.customerList.getList() == null || this.customerList.getList().size() <= 0) {
-            System.out.println("Nenhum paciente cadastrado.");
+            System.out.println("Nenhum cliente cadastrado.");
         } else {
             System.out.println(
                     String.format("%-10s", "|CPF") +"\t"+ 
                     String.format("%-20s", "|NOME") +"\t"+ 
-                    String.format("%-30s", "|ENDEREÇO") +"\t"+ 
-                    String.format("%-20s", "|CEP") );
+                    String.format("%-30s", "|EMAIL") +"\t"+ 
+                    String.format("%-20s", "|NR CONTA") );
             for (Customer c : this.customerList.getList()) {
                 System.out.println(
                     String.format("%-10s", c.getDocument()) +"\t"+ 
                     String.format("%-20s", c.getName()) +"\t"+ 
-                    String.format("%-30s", c.getAddress()) +"\t"+ 
-                    String.format("%-20s", c.getZipCode()) );
+                    String.format("%-30s", c.getEmail()) );
+                if (c.getAccounts().size() > 0) {
+                    System.out.println("Contas vinculadas:");
+                    for (Account acc : c.getAccounts()) {
+                        System.out.println( String.format("%-70s", acc.getAccoutNumber()) );
+                    }
+                }
             }
         }
     }
