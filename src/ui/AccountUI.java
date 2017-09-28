@@ -1,6 +1,8 @@
 package ui;
 
+import java.util.Iterator;
 import model.Account;
+import repository.AccountRepository;
 import util.Console;
 import view.menu.AccountMenu;
 
@@ -10,10 +12,10 @@ import view.menu.AccountMenu;
  */
 public class AccountUI {
     
-    private Account account;
+    private AccountRepository accountList;
     
-    public AccountUI(AccountRepository account) {
-        this.account = account;
+    public AccountUI(AccountRepository accountList) {
+        this.accountList = accountList;
     }
     
     public void execute() {
@@ -22,17 +24,20 @@ public class AccountUI {
             System.out.println(AccountMenu.getOptions());
             option = Console.scanInt("Informe sua opção:");
             switch (option) {
+                case AccountMenu.OP_LISTAR:
+                    listAccounts();
+                    break;
                 case AccountMenu.OP_SALDO:
                     showBalance();
                     break;
                 case AccountMenu.OP_CREDITAR:
-                    doCredit();
+                    //doCredit();
                     break;
                 case AccountMenu.OP_SACAR:
-                    doWidrawal();
+                    //doWidrawal();
                     break;
                 case AccountMenu.OP_TRANSFERIR:
-                    doTransfer();
+                    //doTransfer();
                     break;
                 default:
                     System.out.println("Opção inválida.");
@@ -41,9 +46,26 @@ public class AccountUI {
         } while (option != 0);
     }
     
-    public void showBalance() {
+    public void showBalance(int accountNumber) {
+        Iterator it = this.accountList.iterator();
         System.out.println(
-            String.format("", args));
+            String.format("%-10s", "|SALDO") + "\n" + 
+            String.format("%-10s", this.accountList) );
+    }
+    
+    public void listAccounts() {
+        if (this.accountList.getList() == null || this.accountList.getList().size() <= 0) {
+            System.out.println("Nenhum cliente cadastrado.");
+        } else {
+            System.out.println(
+                    String.format("%-20s", "|NRO DA CONTA") +"\t"+ 
+                    String.format("%-20s", "|SALDO") );
+            for (Account a : this.accountList.getList()) {
+                System.out.println(
+                    String.format("%-20s", a.getAccoutNumber()) +"\t"+ 
+                    String.format("%-20s", a.getBalance()) );
+            }
+        }
     }
     
 }

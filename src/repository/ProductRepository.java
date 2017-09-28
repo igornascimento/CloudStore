@@ -11,7 +11,7 @@ public class ProductRepository {
     
     private ArrayList<Product> products = new ArrayList<>();
     
-    public boolean customerExists(int id) {
+    public boolean productExists(int id) {
         if (this.products != null) {
             for (Product p : this.products) {
                 if (p.getId() == id) {

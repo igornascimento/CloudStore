@@ -10,10 +10,10 @@ public class Product {
     private String name;
     private String description;
     private int quantity;
-    private float price;
+    private double price;
     private String unityOfMeasure;
     
-    public Product(int id, String name, String description, int quantity, float price, String unityOfMesure) {
+    public Product(int id, String name, String description, int quantity, double price, String unityOfMesure) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -38,7 +38,7 @@ public class Product {
         return quantity;
     }
 
-    public float getValue() {
+    public double getValue() {
         return price;
     }
     

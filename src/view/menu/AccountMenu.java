@@ -10,6 +10,7 @@ public class AccountMenu {
     public static final int OP_CREDITAR = 2;
     public static final int OP_SACAR = 3;
     public static final int OP_TRANSFERIR = 4;
+    public static final int OP_LISTAR = 5;
     public static final int OP_VOLTAR = 0;
     
     public static String getOptions() {
@@ -18,6 +19,7 @@ public class AccountMenu {
                 + "\n2- Creditar;"
                 + "\n3- Sacar;"
                 + "\n4- Transferir;"
+                + "\n5- Listar Contas;"
                 + "\n0- Voltar;"
                 + "\n------------------");
     }

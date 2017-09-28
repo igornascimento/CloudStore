@@ -16,9 +16,12 @@ public class Account {
         this.balance = 0.0;
     }
     
+    /**
+     * Generates new account number of a random from 00000 to 99999
+     * @return int accountNumber
+     */
     public int generateAccountNumber() {
         Random rnd = new Random();
-        // generating random from 00000 to 99999
         return rnd.nextInt(99999 - 00000 + 1) + 00000;
     }
 
@@ -38,6 +41,25 @@ public class Account {
         this.balance = balance;
     }
     
+    /**
+     * Credit operation for the account
+     * @return boolean
+     */
+    public boolean credit(double value) {
+        this.balance += value;
+        return true;
+    }
     
+    /**
+     * Debit operation for the account
+     * @return boolean
+     */
+    public boolean debit(double value) {
+        if (this.balance >= value) {
+            this.balance -= value;
+            return true;
+        }
+        return false;
+    }
     
 }
