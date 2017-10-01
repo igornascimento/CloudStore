@@ -46,8 +46,8 @@ public class AccountUI {
         } while (option != 0);
     }
     
-    public void showBalance(int accountNumber) {
-        Iterator it = this.accountList.iterator();
+    public void showBalance() {
+        
         System.out.println(
             String.format("%-10s", "|SALDO") + "\n" + 
             String.format("%-10s", this.accountList) );
