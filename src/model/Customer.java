@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Customer {
     
+    private int id = 0;
     private final String name;
     private final String document;
     private final String email;
@@ -19,7 +20,23 @@ public class Customer {
         this.email = email;
         this.accounts.add( new Account() );
     }
+    
+    public Customer(int id, String name, String document, String email) {
+        this.id = id;
+        this.name = name;
+        this.document = document;
+        this.email = email;
+        this.accounts.add( new Account() );
+    }
 
+    public int setId() {
+        return id;
+    }
+
+    public int getId() {
+        return id;
+    }
+    
     public String getName() {
         return name;
     }

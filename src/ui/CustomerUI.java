@@ -1,5 +1,6 @@
 package ui;
 
+import DB.CustomerDAODB;
 import java.util.ArrayList;
 import model.Account;
 import model.Customer;
@@ -54,7 +55,10 @@ public class CustomerUI {
         } else {
             String name = Console.scanString("Informe o nome completo:");
             String email = Console.scanString("Informe o email:");
-            this.customerList.add(new Customer(name, document, email));
+            Customer customer = new Customer(name, document, email);
+            this.customerList.add(customer);
+            CustomerDAODB dao = new CustomerDAODB();
+            dao.save(customer);
         }
     }
 
