@@ -14,7 +14,7 @@ import model.Customer;
 
 /**
  *
- * @author 180503743
+ * @author Igor Nascimento <igornascimento@gmail.com>
  */
 public class CustomerDAODB implements CustomerDAO {
 

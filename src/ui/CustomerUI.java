@@ -57,8 +57,6 @@ public class CustomerUI {
             String email = Console.scanString("Informe o email:");
             Customer customer = new Customer(name, document, email);
             this.customerList.add(customer);
-            CustomerDAODB dao = new CustomerDAODB();
-            dao.save(customer);
         }
     }
 

@@ -2,6 +2,7 @@ package repository;
 
 import DB.CustomerDAODB;
 import java.util.ArrayList;
+import java.util.List;
 import model.Customer;
 
 /**
@@ -10,7 +11,7 @@ import model.Customer;
  */
 public class CustomerRepository {
 
-    private ArrayList<Customer> customers = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
     
     public boolean customerExists(String document) {
         if (this.customers != null) {
@@ -30,7 +31,9 @@ public class CustomerRepository {
     }
     
     public ArrayList<Customer> getList() {
-        return this.customers;
+        CustomerDAODB dao = new CustomerDAODB();
+        this.customers = dao.list();
+        return (ArrayList<Customer>) this.customers;
     }
     
 }
