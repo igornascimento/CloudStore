@@ -45,7 +45,7 @@ public class CustomerDAODB implements CustomerDAO {
     public void save(Customer customer) {
         int id = 0;
         try {
-            String sql = "INSERT INTO customer (name, document_number, email) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO customer (name, document, email) VALUES (?, ?, ?)";
             this.connectGettingId(sql);
             command.setString(1, customer.getName());
             command.setString(2, customer.getDocument());

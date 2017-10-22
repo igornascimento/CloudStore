@@ -12,14 +12,19 @@ import java.util.logging.Logger;
  */
 public class ConnectionFactory {
 
-    private static final String db = "jdbc:postgresql://localhost:5432/ProjetoBanco4";
-    private static final String user = "postgres";
-    private static final String pass = "123456";
+    // private static final String db = "jdbc:postgresql://localhost:5432/ProjetoBanco4";
+    // private static final String user = "postgres";
+    // private static final String pass = "123456";
+    
+    private static final String db = "jdbc:mysql://localhost:3306/cloudstore?user=root&password=";
+    private static final String user = "root";
+    private static final String pass = "";
     
     public static Connection getConnection() {
         Connection conn = null;
         try {
-            Class.forName("org.postgresql.Driver");
+            // Class.forName("org.postgresql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(db, user, pass);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
