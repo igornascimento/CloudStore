@@ -1,5 +1,6 @@
 package repository;
 
+import DB.CustomerDAODB;
 import java.util.ArrayList;
 import model.Customer;
 
@@ -23,6 +24,8 @@ public class CustomerRepository {
     }
     
     public boolean add(Customer customer) {
+        CustomerDAODB dao = new CustomerDAODB();
+        dao.save(customer);
         return this.customers.add(customer);
     }
     
