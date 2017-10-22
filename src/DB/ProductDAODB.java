@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,27 +62,86 @@ public class ProductDAODB implements ProductDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAODB.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection();
         }
     }
 
     @Override
     public void delete(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "DELETE FROM product WHERE id = ?";
+            connect(sql);
+            command.setInt(1, product.getId());
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAODB.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection();
+        }
     }
 
     @Override
     public void update(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "UPDATE product SET name = ?, description = ?, quantity = ?, price = ?, unity = ? WHERE id = ?";
+            connect(sql);
+            command.setString(1, product.getName());
+            command.setString(2, product.getDescription());
+            command.setInt(3, product.getQuantity());
+            command.setDouble(4, product.getValue());
+            command.setString(5, product.getUnityOfMeasure());
+            command.setInt(5, product.getId());
+        } catch(SQLException e) {
+            Logger.getLogger(ProductDAODB.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            closeConnection();
+        }
     }
 
     @Override
     public List<Product> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM customer";
+            connect(sql);
+            ResultSet result = command.executeQuery();
+            while (result.next()) {
+                list.add( new Product(result.getInt("id"),
+                                      result.getString("name"),
+                                      result.getString("description"),
+                                      result.getInt("quantity"),
+                                      result.getDouble("price"),
+                                      result.getString("unity")));
+            }
+        } catch(SQLException e) {
+            Logger.getLogger(ProductDAODB.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            closeConnection();
+        }
+        return list;
     }
 
     @Override
     public Product getById(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "SELECT * FROM product WHERE id = ?";
+            connect(sql);
+            command.setInt(1, product.getId());
+            ResultSet result = command.executeQuery();
+            if (result.next()) {
+                new Product(result.getInt("id"),
+                            result.getString("name"),
+                            result.getString("description"),
+                            result.getInt("quantity"),
+                            result.getDouble("price"),
+                            result.getString("unity"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAODB.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            closeConnection();
+        }
+        return null;
     }
     
 }

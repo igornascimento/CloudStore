@@ -1,5 +1,6 @@
 package repository;
 
+import DB.ProductDAODB;
 import java.util.ArrayList;
 import model.Product;
 
@@ -22,11 +23,15 @@ public class ProductRepository {
         return false;
     }
     
-    public boolean add(Product customer) {
-        return this.products.add(customer);
+    public boolean add(Product product) {
+        ProductDAODB dao = new ProductDAODB();
+        dao.save(product);
+        return this.products.add(product);
     }
     
     public ArrayList<Product> getList() {
+        ProductDAODB dao = new ProductDAODB();
+        this.products = (ArrayList<Product>) dao.list();
         return this.products;
     }
     

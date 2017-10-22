@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/model/Account.java</file>
-            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/ui/CustomerUI.java</file>
-            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/ui/MainUI.java</file>
-            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/model/Customer.java</file>
-            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/ui/AccountUI.java</file>
+            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/DB/ConnectionFactory.java</file>
+            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/repository/ProductRepository.java</file>
+            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/DB/CustomerDAODB.java</file>
+            <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/DB/ProductDAODB.java</file>
             <file>file:/C:/Users/igornascimento/Desktop/git/CloudStore/src/model/Product.java</file>
         </group>
     </open-files>
